@@ -1,3 +1,4 @@
+using Services.EstudianteServices;
 using System.Web.Mvc;
 using Unity;
 using Unity.Mvc5;
@@ -16,7 +17,7 @@ namespace Web
             // e.g. container.RegisterType<ITestService, TestService>();
             
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
-            //container.RegisterType<ITestService, TestService>();
+            container.RegisterType<IEstudianteServices, EstudianteServices>();
         }
     }
 }

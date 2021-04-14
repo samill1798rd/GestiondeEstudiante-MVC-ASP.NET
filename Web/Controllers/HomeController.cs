@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Services.EstudianteServices;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,8 +9,17 @@ namespace Web.Controllers
 {
     public class HomeController : Controller
     {
+        private IEstudianteServices _EstudianteServices;
+        public HomeController(IEstudianteServices EstudianteServices)
+        {
+            _EstudianteServices = EstudianteServices;
+        }
+
         public ActionResult Index()
         {
+            var test = _EstudianteServices.GetallEstudiantes();
+            var test2 = _EstudianteServices.GetEstudianteById(1);
+
             return View();
         }
 
