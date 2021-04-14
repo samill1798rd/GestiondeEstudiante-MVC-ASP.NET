@@ -1,0 +1,194 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="proyecting007Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Estudiantes">
+          <Key>
+            <PropertyRef Name="Id_Estudiantes" />
+          </Key>
+          <Property Name="Id_Estudiantes" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nvarchar" MaxLength="100" />
+          <Property Name="Apellido" Type="nvarchar" MaxLength="100" />
+          <Property Name="FechaNacimiento" Type="datetime" />
+          <Property Name="Imagen" Type="varbinary(max)" />
+          <Property Name="Matricula" Type="int" />
+          <Property Name="Nacionalidad_id" Type="int" />
+          <Property Name="Carrera" Type="int" />
+          <Property Name="FechaInicio" Type="datetime" />
+          <Property Name="FechaFinalizacion" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="nacionalidad">
+          <Key>
+            <PropertyRef Name="Id_nacionalidad" />
+          </Key>
+          <Property Name="Id_nacionalidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PAIS_NAC" Type="varchar" MaxLength="50" />
+          <Property Name="GENTILICIO_NAC" Type="varchar" MaxLength="50" />
+          <Property Name="ISO_NAC" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id_usuario" />
+          </Key>
+          <Property Name="Id_usuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreUsuario" Type="varchar" MaxLength="50" />
+          <Property Name="Clave" Type="varchar" MaxLength="50" />
+          <Property Name="FechaCreacion" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <Association Name="FK__Estudiant__Nacio__1B0907CE">
+          <End Role="nacionalidad" Type="Self.nacionalidad" Multiplicity="0..1" />
+          <End Role="Estudiantes" Type="Self.Estudiantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nacionalidad">
+              <PropertyRef Name="Id_nacionalidad" />
+            </Principal>
+            <Dependent Role="Estudiantes">
+              <PropertyRef Name="Nacionalidad_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="proyecting007ModelStoreContainer">
+          <EntitySet Name="Estudiantes" EntityType="Self.Estudiantes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="nacionalidad" EntityType="Self.nacionalidad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Estudiant__Nacio__1B0907CE" Association="Self.FK__Estudiant__Nacio__1B0907CE">
+            <End Role="nacionalidad" EntitySet="nacionalidad" />
+            <End Role="Estudiantes" EntitySet="Estudiantes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="proyecting007Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Estudiante">
+          <Key>
+            <PropertyRef Name="Id_Estudiantes" />
+          </Key>
+          <Property Name="Id_Estudiantes" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Apellido" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FechaNacimiento" Type="DateTime" Precision="3" />
+          <Property Name="Imagen" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Matricula" Type="Int32" />
+          <Property Name="Nacionalidad_id" Type="Int32" />
+          <Property Name="Carrera" Type="Int32" />
+          <Property Name="FechaInicio" Type="DateTime" Precision="3" />
+          <Property Name="FechaFinalizacion" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+          <NavigationProperty Name="nacionalidad" Relationship="Self.FK__Estudiant__Nacio__1B0907CE" FromRole="Estudiantes" ToRole="nacionalidad" />
+        </EntityType>
+        <EntityType Name="nacionalidad">
+          <Key>
+            <PropertyRef Name="Id_nacionalidad" />
+          </Key>
+          <Property Name="Id_nacionalidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PAIS_NAC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GENTILICIO_NAC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ISO_NAC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Estudiantes" Relationship="Self.FK__Estudiant__Nacio__1B0907CE" FromRole="nacionalidad" ToRole="Estudiantes" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="Id_usuario" />
+          </Key>
+          <Property Name="Id_usuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Clave" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <Association Name="FK__Estudiant__Nacio__1B0907CE">
+          <End Role="nacionalidad" Type="Self.nacionalidad" Multiplicity="0..1" />
+          <End Role="Estudiantes" Type="Self.Estudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="nacionalidad">
+              <PropertyRef Name="Id_nacionalidad" />
+            </Principal>
+            <Dependent Role="Estudiantes">
+              <PropertyRef Name="Nacionalidad_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GestionDB" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Estudiantes" EntityType="Self.Estudiante" />
+          <EntitySet Name="nacionalidads" EntityType="Self.nacionalidad" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuario" />
+          <AssociationSet Name="FK__Estudiant__Nacio__1B0907CE" Association="Self.FK__Estudiant__Nacio__1B0907CE">
+            <End Role="nacionalidad" EntitySet="nacionalidads" />
+            <End Role="Estudiantes" EntitySet="Estudiantes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="proyecting007ModelStoreContainer" CdmEntityContainer="GestionDB">
+          <EntitySetMapping Name="Estudiantes">
+            <EntityTypeMapping TypeName="proyecting007Model.Estudiante">
+              <MappingFragment StoreEntitySet="Estudiantes">
+                <ScalarProperty Name="Id_Estudiantes" ColumnName="Id_Estudiantes" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
+                <ScalarProperty Name="Matricula" ColumnName="Matricula" />
+                <ScalarProperty Name="Nacionalidad_id" ColumnName="Nacionalidad_id" />
+                <ScalarProperty Name="Carrera" ColumnName="Carrera" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="FechaFinalizacion" ColumnName="FechaFinalizacion" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="nacionalidads">
+            <EntityTypeMapping TypeName="proyecting007Model.nacionalidad">
+              <MappingFragment StoreEntitySet="nacionalidad">
+                <ScalarProperty Name="Id_nacionalidad" ColumnName="Id_nacionalidad" />
+                <ScalarProperty Name="PAIS_NAC" ColumnName="PAIS_NAC" />
+                <ScalarProperty Name="GENTILICIO_NAC" ColumnName="GENTILICIO_NAC" />
+                <ScalarProperty Name="ISO_NAC" ColumnName="ISO_NAC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="proyecting007Model.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="Id_usuario" ColumnName="Id_usuario" />
+                <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
