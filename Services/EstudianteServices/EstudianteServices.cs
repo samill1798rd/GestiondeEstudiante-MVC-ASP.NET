@@ -16,6 +16,8 @@ namespace Services.EstudianteServices
             _GestionDB = new GestionDB();
         }
 
+        //interface
+
         public List<Estudiante> GetallEstudiantes()
         {
            var ListEstudiante =_GestionDB.Estudiantes
