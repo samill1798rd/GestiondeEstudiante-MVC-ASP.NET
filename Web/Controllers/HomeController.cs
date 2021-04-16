@@ -1,9 +1,11 @@
-﻿using Services.EstudianteServices;
+﻿using DataAccess;
+using Services.EstudianteServices;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Web.ViewModel;
 
 namespace Web.Controllers
 {
@@ -17,16 +19,23 @@ namespace Web.Controllers
 
         public ActionResult Index()
         {
-            var test = _EstudianteServices.GetallEstudiantes();
-            var test2 = _EstudianteServices.GetEstudianteById(1);
 
-            return View();
+            //var test = _EstudianteServices.GetallEstudiantes();
+            var ModelEstuidante = _EstudianteServices.GetEstudianteById(1);
+
+            var vm = MapperEstuidanteToViewModel(ModelEstuidante);
+
+            //var model 
+
+            //var save = _EstudianteServices.SaveEstudiante();
+
+            return View(vm);
         }
-
-        public ActionResult About()
+        [HttpPost]
+        public ActionResult Save(EstudianteViewModel vm)
         {
-            ViewBag.Message = "Your application description page.";
-
+            var model = MapperViewModelToEstuidante(vm);
+            var save = _EstudianteServices.SaveEstudiante(model);
             return View();
         }
 
@@ -36,5 +45,44 @@ namespace Web.Controllers
 
             return View();
         }
+        private EstudianteViewModel MapperEstuidanteToViewModel(Estudiante model)
+        {
+            return new EstudianteViewModel()
+            {
+                Id_Estudiantes = model.Id_Estudiantes,
+                Nombre = model.Nombre,
+                Apellido = model.Apellido,
+                FechaNacimiento = model.FechaNacimiento,
+                Imagen = model.Imagen,
+                Matricula = model.Matricula,
+                Nacionalidad_id = model.Nacionalidad_id,
+                Carrera = model.Carrera,
+                FechaInicio = model.FechaInicio,
+                FechaFinalizacion = model.FechaFinalizacion,
+                IsActive = model.IsActive,
+                nacionalidad = model.nacionalidad
+            };
+        }
+
+        private Estudiante MapperViewModelToEstuidante(EstudianteViewModel vm)
+        {
+            return new Estudiante()
+            {
+                Id_Estudiantes = vm.Id_Estudiantes,
+                Nombre = vm.Nombre != null ? vm.Nombre : null,
+                Apellido = vm.Apellido,
+                FechaNacimiento = vm.FechaNacimiento,
+                Imagen = vm.Imagen,
+                Matricula = vm.Matricula,
+                Nacionalidad_id = vm.Nacionalidad_id,
+                Carrera = vm.Carrera,
+                FechaInicio = vm.FechaInicio,
+                FechaFinalizacion = vm.FechaFinalizacion,
+                IsActive = vm.IsActive,
+                nacionalidad = vm.nacionalidad
+            };
+        }
     }
 }
+
+

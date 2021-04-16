@@ -1,5 +1,16 @@
-﻿@{
+﻿@model Web.ViewModel.EstudianteViewModel
+@{
     ViewBag.Title = "Home Page";
+}
+
+@Html.BeginForm("Save", "Home", FormMethod.Post){
+    @Html.LabelFor(x => x.Nombre)
+    @Html.TextBoxFor(x => x.Nombre)
+
+    @Html.LabelFor(x => x.Apellido)
+    @Html.TextBoxFor(x => x.Apellido)
+
+<input type="submit" name="name" value="Registrar" />
 }
 
 <div class="jumbotron">
