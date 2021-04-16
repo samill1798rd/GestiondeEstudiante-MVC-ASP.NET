@@ -57,18 +57,40 @@ namespace Services.EstudianteServices
 
         public OperationResult<Estudiante> UpdateEstudiante(Estudiante model)
         {
-            throw new NotImplementedException();
+            var Operation = new OperationResult<Estudiante>();
+
+            var estudianteTracking = _GestionDB.Estudiantes.Find(model.Id_Estudiantes);
+            try
+            {
+                estudianteTracking.Apellido = model.Apellido;
+                estudianteTracking.Carrera = model.Carrera;
+                estudianteTracking.FechaFinalizacion = model.FechaFinalizacion;
+                estudianteTracking.FechaInicio = model.FechaInicio;
+                estudianteTracking.FechaNacimiento = model.FechaNacimiento;
+                estudianteTracking.Imagen = model.Imagen;
+                estudianteTracking.nacionalidad = model.nacionalidad;
+                estudianteTracking.Nacionalidad_id = model.Nacionalidad_id;
+                estudianteTracking.Nombre = estudianteTracking.Nombre;
+                _GestionDB.SaveChanges();
+            }
+            catch (Exception)
+            {
+                Operation.Mensaje.Add(" Revisa hubo un error al actualizar");
+                Operation.ResultObject = model;
+                Operation.Ok = false;
+            }
+            return Operation;
 
         }
 
-        public OperationResult<Estudiante> DeleteEstudiante(Estudiante model)
+        public OperationResult<Estudiante> IsActiveEstudiante(Estudiante model)
         {
             
             var Operation = new OperationResult<Estudiante>();
 
             try
             {
-                var estudiante = _GestionDB.Estudiantes.Remove(model);
+                var estudiante = _GestionDB.Estudiantes.(model);
                 _GestionDB.SaveChanges();
                 Operation.Mensaje.Add("Removido con exito");
                 Operation.ResultObject = model;
@@ -84,3 +106,4 @@ namespace Services.EstudianteServices
         }
     }
 }
+

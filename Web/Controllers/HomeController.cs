@@ -7,7 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using Web.ViewModel;
 
-namespace Web.Controllers
+namespace Web.Controllers 
 {
     public class HomeController : Controller
     {
@@ -22,7 +22,6 @@ namespace Web.Controllers
 
             //var test = _EstudianteServices.GetallEstudiantes();
             var ModelEstuidante = _EstudianteServices.GetEstudianteById(1);
-
             var vm = MapperEstuidanteToViewModel(ModelEstuidante);
 
             //var model 
@@ -39,6 +38,17 @@ namespace Web.Controllers
             return View();
         }
 
+        public ActionResult Update(EstudianteViewModel vm)
+        {
+            var uph = new EstudianteServices();
+
+            //up.UpdateEstudiante(vm);
+            
+            return View();
+        }
+
+
+        
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

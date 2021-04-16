@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Services.EstudianteServices
 {
     public interface IEstudianteServices
@@ -16,6 +17,6 @@ namespace Services.EstudianteServices
 
         OperationResult<Estudiante> SaveEstudiante(Estudiante model);
         OperationResult<Estudiante> UpdateEstudiante(Estudiante model);
-        OperationResult<Estudiante> DeleteEstudiante(Estudiante model);
+        OperationResult<Estudiante> IsActiveEstudiante(Estudiante model);
     }
 }
