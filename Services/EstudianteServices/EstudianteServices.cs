@@ -40,7 +40,7 @@ namespace Services.EstudianteServices
 
             try
             {
-                var estudiante = _GestionDB.Estudiantes.Add(model);
+                var estudiante = _GestionDB.Estudiantes.Add (model);
                 _GestionDB.SaveChanges();
                 Operation.Mensaje.Add("Todo Bien");
                 Operation.ResultObject = model;
@@ -58,11 +58,29 @@ namespace Services.EstudianteServices
         public OperationResult<Estudiante> UpdateEstudiante(Estudiante model)
         {
             throw new NotImplementedException();
+
         }
 
         public OperationResult<Estudiante> DeleteEstudiante(Estudiante model)
         {
-            throw new NotImplementedException();
+            
+            var Operation = new OperationResult<Estudiante>();
+
+            try
+            {
+                var estudiante = _GestionDB.Estudiantes.Remove(model);
+                _GestionDB.SaveChanges();
+                Operation.Mensaje.Add("Removido con exito");
+                Operation.ResultObject = model;
+                Operation.Ok = true;
+            }
+            catch (Exception)
+            {
+                Operation.Mensaje.Add("Algo salio Mal");
+                Operation.ResultObject = model;
+                Operation.Ok = false;
+            };
+            return Operation;
         }
     }
 }
