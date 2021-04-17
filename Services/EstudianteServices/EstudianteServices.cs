@@ -85,23 +85,21 @@ namespace Services.EstudianteServices
 
         public OperationResult<Estudiante> IsActiveEstudiante(Estudiante model)
         {
-            
-            var Operation = new OperationResult<Estudiante>();
+           var Operation = new OperationResult<Estudiante>();
 
+            var estudianteTracking = _GestionDB.Estudiantes.Find(model.Id_Estudiantes);
             try
             {
-                var estudiante = _GestionDB.Estudiantes.(model);
+                estudianteTracking.IsActive = model.IsActive;
+            
                 _GestionDB.SaveChanges();
-                Operation.Mensaje.Add("Removido con exito");
-                Operation.ResultObject = model;
-                Operation.Ok = true;
             }
             catch (Exception)
             {
-                Operation.Mensaje.Add("Algo salio Mal");
+                Operation.Mensaje.Add(" Ocurrio un problema");
                 Operation.ResultObject = model;
-                Operation.Ok = false;
-            };
+                Operation.Ok = true;
+            }
             return Operation;
         }
     }
