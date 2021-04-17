@@ -46,6 +46,14 @@ namespace Web.Controllers
             
             return View();
         }
+         public ActionResult IsActive(EstudianteViewModel vm)
+        {
+            var tmp = new EstudianteServices();
+
+            //up.UpdateEstudiante(vm);
+            
+            return View();
+        }
 
 
         
