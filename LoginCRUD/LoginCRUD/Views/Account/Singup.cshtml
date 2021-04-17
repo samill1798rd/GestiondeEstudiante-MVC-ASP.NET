@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Singup";
+    Layout = "~/Views/_LayoutPage2.cshtml";
+
+}
+<!--sign up form start here-->
+<h1>Signer Register Form</h1>
+<div class="singup">
+    
+    <h3>CREATE AN ACCOUNT</h3>
+    <div class="signup-main">
+        <form action="Registrer" method="post">
+            <input type="text" class="text" name="NombreUsuario" placeholder="User Name" required="" autofocus>
+
+            <input type="password" class="password" name="Clave" placeholder="User Password" required="" autofocus>
+
+            <div class="send-button">
+                <input type="submit" value="Sign me up" />
+            </div>
+            <p>Already have an account?  <a href="Login">Login Here</a></p>
+        </form>
+    </div>
+</div>
+<div class="copyright">
+    <p>Template by <a href="http://w3layouts.com/"> W3layouts </a></p>
+</div>
+<!--sign up form end here-->

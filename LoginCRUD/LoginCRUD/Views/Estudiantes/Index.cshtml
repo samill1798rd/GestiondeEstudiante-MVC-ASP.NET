@@ -1,0 +1,106 @@
+﻿@model IEnumerable<LoginCRUD.Estudiante>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<body style="background-color:lightgrey">
+    <div class="container">
+        <center>
+            <br />
+            <h2>Bienvendio al Registro de Estudiantes</h2>
+            <br />
+            <br />
+            <br />
+            <br />
+        </center>
+
+        <p>
+            <button class="btn" type="submit" style="background-color:lime; color: black; ">@Html.ActionLink("Registrar Nuevo Estudiante", "Create")</button>
+        </p>
+        <br />
+        <br />
+        <div style="border-radius: 10px; background-color: rgb(244, 246, 247); color: black;" class="table-responsive">
+            <center>
+                <table class="table">
+                    <thead style="background-color:cadetblue">
+                        <tr>
+                            <th scope="col">
+                                @Html.DisplayNameFor(model => model.Imagen)
+                            </th>
+                            <th scope="col">
+                                @Html.DisplayNameFor(model => model.Nombre)
+                            </th>
+                            <th scope="col">
+                                @Html.DisplayNameFor(model => model.Apellido)
+                            </th>
+                            <th scope="col">
+                                @Html.DisplayNameFor(model => model.FechaNacimiento)
+                            </th>
+
+                            <th scope="col">
+                                @Html.DisplayNameFor(model => model.Matricula)
+                            </th>
+                            <th scope="col">
+                                @Html.DisplayNameFor(model => model.Nacionalidad_id)
+                            </th>
+                            <th scope="col">
+                                @Html.DisplayNameFor(model => model.Carrera)
+                            </th>
+                            <th scope="col">
+                                @Html.DisplayNameFor(model => model.FechaInicio)
+                            </th>
+                            <th scope="col">
+                                @Html.DisplayNameFor(model => model.FechaFinalizacion)
+                            </th>
+                            <th scope="col">
+                                @Html.DisplayNameFor(model => model.IsActive)
+                            </th>
+                        </tr>
+                    </thead>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <img src="@Html.DisplayFor(modelItem => item.Imagen)" sizes="25px" /> @Html.DisplayFor(modelItem => item.Imagen)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nombre)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Apellido)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FechaNacimiento)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Matricula)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Nacionalidad_id)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Carrera)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FechaInicio)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.FechaFinalizacion)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.IsActive)
+                            </td>
+                            <td>
+                                <p>@Html.ActionLink("Edit", "Edit", new { id = item.Id_Estudiantes })</p>
+                                <p>@Html.ActionLink("Delete", "Delete", new { id = item.Id_Estudiantes })</p>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </center>
+        </div>
+    </div>
+</body>

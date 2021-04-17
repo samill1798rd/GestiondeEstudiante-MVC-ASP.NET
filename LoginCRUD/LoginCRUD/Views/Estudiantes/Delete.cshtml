@@ -1,0 +1,112 @@
+﻿@model LoginCRUD.Estudiante
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<body style="background-color: lightgray">
+    <center>
+        <h2>Delete</h2>
+
+        <h3>Seguro que Quieres Eliminar este usuario?</h3>
+        <div class="form-actions no-color">
+            <input type="submit" value="Eliminar" class="btn btn-default" style="background-color: red" />
+
+        </div>
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Nombre)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Apellido)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Apellido)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.FechaNacimiento)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FechaNacimiento)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Imagen)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Imagen)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Matricula)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Matricula)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Nacionalidad_id)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Nacionalidad_id)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Carrera)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Carrera)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.FechaInicio)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FechaInicio)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.FechaFinalizacion)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.FechaFinalizacion)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.IsActive)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.IsActive)
+                </dd>
+
+            </dl>
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div>
+                    @Html.ActionLink("Volver a la Lista", "Index")
+                </div>
+            }
+        </div>
+    </center>
+</body>
