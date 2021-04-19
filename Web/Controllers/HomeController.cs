@@ -1,13 +1,9 @@
 ﻿using DataAccess;
 using Services.EstudianteServices;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Web.ViewModel;
 
-namespace Web.Controllers 
+namespace Web.Controllers
 {
     public class HomeController : Controller
     {
@@ -45,12 +41,18 @@ namespace Web.Controllers
            // var uph = new EstudianteServices();
 
             //up.UpdateEstudiante(vm);
-            
+
+            return View();
+        }
+        public ActionResult IsActive(EstudianteViewModel vm)
+        {
+            var tmp = new EstudianteServices();
+
             return View();
         }
 
 
-        
+
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";

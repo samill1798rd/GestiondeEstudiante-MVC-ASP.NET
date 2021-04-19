@@ -1,0 +1,284 @@
+/*--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+--*/
+/* start editing from here */
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
+ol,ul{list-style:none;margin:0;padding:0;}
+blockquote,q{quotes:none;}
+blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}
+table{border-collapse:collapse;border-spacing:0;}
+/* start editing from here */
+a{text-decoration:none;}
+.txt-rt{text-align:right;}/* text align right */
+.txt-lt{text-align:left;}/* text align left */
+.txt-center{text-align:center;}/* text align center */
+.float-rt{float:right;}/* float right */
+.float-lt{float:left;}/* float left */
+.clear{clear:both;}/* clear float */
+.pos-relative{position:relative;}/* Position Relative */
+.pos-absolute{position:absolute;}/* Position Absolute */
+.vertical-base{	vertical-align:baseline;}/* vertical align baseline */
+.vertical-top{	vertical-align:top;}/* vertical align top */
+.underline{	padding-bottom:5px;	border-bottom: 1px solid #eee; margin:0 0 20px 0;}/* Add 5px bottom padding and a underline */
+nav.vertical ul li{	display:block;}/* vertical menu */
+nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
+img{max-width:100%;}
+/*end reset*/
+/*-contact start here--*/
+body {
+   background: url(../images/gray.jpg)no-repeat;
+   background-size: cover;
+   padding:50px 0px 30px 0px;
+   font-family: 'Open Sans', sans-serif;
+   font-size: 100%;
+}
+h1 {
+  font-size: 35px;
+  font-weight: 400;
+  color: #fff;
+  text-align: center;
+  margin: 0px 0px 40px 0px;
+}
+.singup{
+  width: 30%;
+  background: #fff;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+.singup h3 {
+  font-size: 27px;
+  font-weight: 300;
+  color: #fff;
+  background: #0EA7E7;
+  padding: 20px 0px;
+  text-align: center;
+  border-radius: 10px 10px 0px 0px;
+  border-bottom: 3px solid #EA484E;
+}
+.signup-main {
+  padding: 30px 30px 25px 30px;
+  text-align: center;
+}
+.signup-main input[type="text"] {
+  outline: none;
+  font-size: 15px;
+  font-weight: 400;
+  color: #CCCACA;
+  padding: 13px 10px;
+  border: 2px solid #C9C9C9;
+  margin: 0px 30px 20px 0px;
+  width: 40%;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -o-border-radius: 4px;
+  -webkit-appearance: none;
+}
+.signup-main input.lessgap[type="text"] {
+  margin: 0px 0px 0px 0px;
+}
+.signup-main input.email[type="text"] {
+  margin: 0px 0px 20px 0px;
+  width: 94%;
+}
+.signup-main input.phone[type="text"] {
+  width: 94%;
+  margin: 0px 0px 25px 0px;
+}
+.signup-main input[type="password"]{
+   outline: none;
+  font-size: 15px;
+  font-weight: 400;
+  color: #CCCACA;
+  padding: 13px 10px;
+  border: 2px solid #C9C9C9;
+  margin: 0px 30px 20px 0px;
+  width: 40%;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -o-border-radius: 4px;
+  -webkit-appearance: none;
+}
+.signup-main input.lessgap[type="password"] {
+  margin: 0px 0px 0px 0px;
+}
+.signup-main input[type="submit"] {
+  background: #EA484E;
+  color: #FFF;
+  font-size: 25px;
+  font-weight: 300;
+  padding: 10px 30px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  margin: 0px 0px 5px 0px;
+  border: none;
+  display: inline-block;
+  cursor: pointer;
+  outline:none;
+}
+.signup-main input[type="submit"]:hover {
+  background:#0EA7E7;
+}
+.signup-main p {
+  font-size: 13px;
+  font-weight: 400;
+  color: #BCBCBC;
+  text-decoration: underline;
+}
+.signup-main p a{
+  font-size: 13px;
+  font-weight: 600;
+  color: #0EA7E7;
+}
+.signup-main p a:hover{
+  color: #BCBCBC;
+}
+.copyright {
+  padding: 150px 0px 0px 0px;
+  text-align: center;
+}
+.copyright p {
+  font-size: 16px;
+  font-weight: 400;
+  color:#0EA7E7;
+}
+.copyright p a{
+  font-size: 16px;
+  font-weight: 400;
+  color: #0EA7E7;
+}
+.copyright p a:hover{
+	color: #EA484E;
+	 transition: 0.5s all;
+  -webkit-transition: 0.5s all;
+  -moz-transition: 0.5s all;
+  -o-transition: 0.5s all;
+}
+/*-contact end here--*/
+/*--meadia quiries start here--*/
+@media(max-width:1440px){
+.singup {
+  width: 35%;
+}
+.copyright {
+  padding: 110px 0px 0px 0px;
+}
+}
+@media(max-width:1366px){
+.singup {
+  width: 36%;
+}
+}
+@media(max-width:1280px){
+.singup {
+  width: 38%;
+}
+}
+@media(max-width:1024px){
+.singup {
+  width: 49%;
+}
+}
+@media(max-width:768px){
+.singup {
+  width: 65%;
+}
+body {
+  padding: 100px 0px 27px 0px;
+}
+.signup-main input[type="text"] {
+  margin: 0px 0px 15px 0px;
+  width: 90%;
+}
+.signup-main input.lessgap[type="text"] {
+  margin: 0px 0px 15px 0px;
+}
+.signup-main input.email[type="text"] {
+  margin: 0px 0px 15px 0px;
+  width: 90%;
+}
+.signup-main input[type="password"] {
+  margin: 0px 0px 15px 0px;
+  width: 90%;
+}
+.signup-main input.lessgap[type="password"] {
+  margin: 0px 0px 15px 0px;
+}
+.signup-main input.phone[type="text"] {
+  width: 90%;
+  margin: 0px 0px 20px 0px;
+}
+.signup-main {
+  padding: 30px 20px 25px 20px;
+}
+}
+@media(max-width:640px){
+.singup {
+  width: 77%;
+}	
+body {
+  padding: 50px 0px 50px 0px;	
+}
+}
+@media(max-width:480px){
+.signup-main input[type="submit"] {
+  font-size: 18px;
+}
+}
+@media(max-width:320px){
+.singup {
+  width: 95%;
+}
+.signup-main {
+  padding: 25px 25px 20px 25px;
+}
+.singup h3{
+  padding: 15px 0px;
+   font-size: 20px;	
+}
+.signup-main input[type="submit"] {
+  font-size: 15px;
+  padding: 10px 20px;
+}
+.signup-main input[type="text"] {
+  margin: 0px 0px 10px 0px;
+  padding: 8px 10px;
+  font-size: 12px;
+}
+.signup-main input.lessgap[type="text"] {
+  margin: 0px 0px 10px 0px;
+}
+.signup-main input.email[type="text"] {
+  margin: 0px 0px 10px 0px;
+}
+.signup-main input[type="password"] {
+  padding: 8px 10px;
+}
+body {
+  padding: 20px 0px 25px 0px;
+}
+h1 {
+  font-size: 25px;
+  margin: 0px 0px 15px 0px;
+}
+.copyright {
+  padding: 35px 0px 0px 0px;
+}
+.signup-main {
+  padding: 25px 15px 20px 15px;
+}
+.copyright p {
+  font-size: 13px;
+}
+.copyright p a {
+  font-size: 13px;
+}
+}
+/*--meadia quiries end here--*/

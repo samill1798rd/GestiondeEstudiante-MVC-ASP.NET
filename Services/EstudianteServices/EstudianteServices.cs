@@ -3,8 +3,6 @@ using DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Services.EstudianteServices
 {
@@ -18,11 +16,11 @@ namespace Services.EstudianteServices
 
         public List<Estudiante> GetallEstudiantes()
         {
-           var ListEstudiante =_GestionDB.Estudiantes
-                                         .Include("nacionalidad")
-                                         .OrderBy(x=>x.Nombre)
-                                         .Where(x=>x.IsActive == true)
-                                         .ToList();
+            var ListEstudiante = _GestionDB.Estudiantes
+                                          .Include("nacionalidad")
+                                          .OrderBy(x => x.Nombre)
+                                          .Where(x => x.IsActive == true)
+                                          .ToList();
 
             return ListEstudiante;
         }
@@ -40,7 +38,7 @@ namespace Services.EstudianteServices
 
             try
             {
-                var estudiante = _GestionDB.Estudiantes.Add (model);
+                var estudiante = _GestionDB.Estudiantes.Add(model);
                 _GestionDB.SaveChanges();
                 Operation.Mensaje.Add("Todo Bien");
                 Operation.ResultObject = model;
@@ -85,23 +83,21 @@ namespace Services.EstudianteServices
 
         public OperationResult<Estudiante> IsActiveEstudiante(Estudiante model)
         {
-            
             var Operation = new OperationResult<Estudiante>();
 
+            var estudianteTracking = _GestionDB.Estudiantes.Find(model.Id_Estudiantes);
             try
             {
-                var estudiante = _GestionDB.Estudiantes.(model);
+                estudianteTracking.IsActive = model.IsActive;
+
                 _GestionDB.SaveChanges();
-                Operation.Mensaje.Add("Removido con exito");
-                Operation.ResultObject = model;
-                Operation.Ok = true;
             }
             catch (Exception)
             {
-                Operation.Mensaje.Add("Algo salio Mal");
+                Operation.Mensaje.Add(" Ocurrio un problema");
                 Operation.ResultObject = model;
-                Operation.Ok = false;
-            };
+                Operation.Ok = true;
+            }
             return Operation;
         }
     }

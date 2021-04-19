@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/_LayoutPage1.cshtml";
+}
+
+<!-- form section start -->
+<section class="w3l-hotair-form">
+    <h1>Report Login Form</h1>
+    <div class="container">
+        @{
+            if (!string.IsNullOrEmpty(ViewBag.Mensaje))
+            {
+                <div class="alert alert-warnig">
+                    <center>
+                        @ViewBag.Mensaje
+                    </center>
+                </div>
+            }
+        }
+        <!-- /form -->
+        <div class="workinghny-form-grid">
+            <div class="main-hotair">
+                <div class="content-wthree">
+                    <h2>Log In</h2>
+                    <form action="Verificar" method="post">
+                        <input type="text" class="text" name="NombreUsuario" placeholder="User Name" required="" autofocus>
+
+                        <input type="password" class="password" name="Clave" placeholder="User Password" required="" autofocus>
+                        <button class="btn" type="submit">Log In</button>
+                    </form>
+
+                    <p class="account">Don't have an account? <a href="SingUp">Register</a></p>
+                </div>
+                <div class="w3l_form align-self">
+                    <div class="left_grid_info">
+                        <img src="~/images/1.png" alt="" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- //form -->
+    </div>
+    <!-- copyright-->
+    <div class="copyright text-center">
+        <p class="copy-footer-29">
+            © 2021 Report Login Form. All rights reserved | Design by <a href="https://w3layouts.com">W3layouts</a>
+        </p>
+    </div>
+    <!-- //copyright-->
+</section>
+<!-- //form section start -->
