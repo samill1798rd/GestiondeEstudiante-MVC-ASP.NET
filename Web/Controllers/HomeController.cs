@@ -36,12 +36,8 @@ namespace Web.Controllers
 
         public ActionResult Update(EstudianteServices vm)
         {
-            var model = MapperViewModelToEstuidante(vm.UpdateEstudiante);
-            
-           // var uph = new EstudianteServices();
-
-            //up.UpdateEstudiante(vm);
-
+            var ups = new EstudianteServices();
+              
             return View();
         }
         public ActionResult IsActive(EstudianteViewModel vm)
