@@ -8,7 +8,7 @@ namespace Web.ViewModel
     {
         public int Id_Estudiantes { get; set; }
         [Display(Name = "Nombre Test")]
-        public string Nombre { get; set; }
+        public string Nombre { get; set; }    
         [Display(Name = "Apellido")]
         public string Apellido { get; set; }
         public DateTime? FechaNacimiento { get; set; }

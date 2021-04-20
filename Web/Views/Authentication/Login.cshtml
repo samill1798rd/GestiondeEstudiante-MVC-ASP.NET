@@ -1,0 +1,34 @@
+﻿@model Web.ViewModel.LoginViewModel
+
+
+<h2>Inicio de Sesion</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.NombreUsuario)
+   
+                @Html.EditorFor(model => model.NombreUsuario, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NombreUsuario, "", new { @class = "text-danger" })        
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Clave)
+            
+                @Html.EditorFor(model => model.Clave, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Clave, "", new { @class = "text-danger" })       
+        </div>
+
+        <div class="form-group">     
+                <input type="submit" value="Iniciar sesion" class="btn btn-default" />      
+        </div>
+    </div>
+}
+
+
+
