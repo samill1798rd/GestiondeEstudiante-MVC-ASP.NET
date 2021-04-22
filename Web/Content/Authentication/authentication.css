@@ -1,0 +1,24 @@
+﻿html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+.login__body {
+    min-height: 100vh;
+}
+
+.login__image {
+    -o-object-fit: contain;
+    object-fit: contain;
+}
+
+.login__container,
+.login__row {
+    min-height: 100vh;
+}
+
+.login__card {
+    background-color: #f6f6f6;
+}
+
