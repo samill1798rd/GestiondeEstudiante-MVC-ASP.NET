@@ -69,7 +69,7 @@ namespace Services.EstudianteServices
             return Operation;
         }
 
-        public OperationResult<Estudiante> DesativadoLogicoEstudiante(Estudiante model)
+        public OperationResult<Estudiante> DisableEstudiante(Estudiante model)
         {
             var Operation = new OperationResult<Estudiante>();
 

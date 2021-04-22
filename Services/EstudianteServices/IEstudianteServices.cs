@@ -11,6 +11,6 @@ namespace Services.EstudianteServices
         Estudiante GetEstudianteById(int id);
         OperationResult<Estudiante> SaveEstudiante(Estudiante model);
         OperationResult<Estudiante> UpdateEstudiante(Estudiante model);
-        OperationResult<Estudiante> DesativadoLogicoEstudiante(Estudiante model);
+        OperationResult<Estudiante> DisableEstudiante(Estudiante model);
     }
 }
