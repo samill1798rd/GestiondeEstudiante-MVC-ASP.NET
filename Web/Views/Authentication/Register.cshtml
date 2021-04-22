@@ -4,40 +4,6 @@
     Layout = "/Views/Shared/_AuthenticationLayout.cshtml";
 }
 
-@*<h2>Registro</h2>
-
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-    <hr />
-    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.NombreUsuario)
-        @Html.EditorFor(model => model.NombreUsuario, new { htmlAttributes = new { @class = "form-control" } })
-        @Html.ValidationMessageFor(model => model.NombreUsuario, "", new { @class = "text-danger" })
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(model => model.Clave)
-        @Html.EditorFor(model => model.Clave, new { htmlAttributes = new { @class = "form-control", Type = "password" } })
-        @Html.ValidationMessageFor(model => model.Clave, "", new { @class = "text-danger" })
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(model => model.ConfirmarClave)
-        @Html.EditorFor(model => model.ConfirmarClave, new { htmlAttributes = new { @class = "form-control", Type = "password" } })
-        @Html.ValidationMessageFor(model => model.Clave, "", new { @class = "text-danger" })
-    </div>
-
-    <div class="form-group">
-        <input type="submit" value="Registrarse" class="btn btn-primary" />
-    </div>
-
-    }*@
-
-
-
 <div class="container login__container ">
     <div class="row login__row">
         <div class="col-md-6 d-flex">
