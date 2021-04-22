@@ -19,7 +19,6 @@ namespace Web.ViewModel
         public DateTime? FechaInicio { get; set; }
         public DateTime? FechaFinalizacion { get; set; }
         public bool? IsActive { get; set; }
-
         public nacionalidad nacionalidad { get; set; }
     }
 }

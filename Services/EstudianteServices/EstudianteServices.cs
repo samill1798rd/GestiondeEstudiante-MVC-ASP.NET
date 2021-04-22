@@ -41,15 +41,11 @@ namespace Services.EstudianteServices
             {
                 var estudiante = _GestionDB.Estudiantes.Add(model);
                 _GestionDB.SaveChanges();
-                Operation.Mensaje.Add("Todo Bien");
-                Operation.ResultObject = model;
-                Operation.Ok = true;
+                Operation = SendModelStatus(model, true);
             }
             catch (Exception)
             {
-                Operation.Mensaje.Add("Algo salio Mal");
-                Operation.ResultObject = model;
-                Operation.Ok = false;
+                Operation = SendModelStatus(model, false);
             };
             return Operation;
         }
@@ -64,18 +60,13 @@ namespace Services.EstudianteServices
                 _GestionDB.Estudiantes.Attach(model);
                 _GestionDB.Entry(model).State = EntityState.Modified;
                 _GestionDB.SaveChanges();
-                Operation.Mensaje.Add("Success");
-                Operation.ResultObject = model;
-                Operation.Ok = true;
+                Operation = SendModelStatus(model, true);
             }
             catch (Exception)
             {
-                Operation.Mensaje.Add(" Revisa hubo un error al actualizar");
-                Operation.ResultObject = model;
-                Operation.Ok = false;
+                Operation = SendModelStatus(model, false);
             }
             return Operation;
-
         }
 
         public OperationResult<Estudiante> DesativadoLogicoEstudiante(Estudiante model)
@@ -87,17 +78,22 @@ namespace Services.EstudianteServices
             {
                 estudianteTracking.IsActive = model.IsActive;
                 _GestionDB.SaveChanges();
-                Operation.Mensaje.Add("Success");
-                Operation.ResultObject = model;
-                Operation.Ok = true;
-
+                Operation = SendModelStatus(model, true);
             }
             catch (Exception)
             {
-                Operation.Mensaje.Add(" Ocurrio un problema");
-                Operation.ResultObject = model;
-                Operation.Ok = false;
+                Operation = SendModelStatus(model, false);
             }
+            return Operation;
+        }
+
+        private OperationResult<Estudiante> SendModelStatus(Estudiante model, bool status)
+        {
+            var Operation = new OperationResult<Estudiante>();
+            Operation.Mensaje.Add(status.Equals(true) ? "Success" : "Error");
+            Operation.ResultObject = model;
+            Operation.Ok = status;
+
             return Operation;
         }
     }
