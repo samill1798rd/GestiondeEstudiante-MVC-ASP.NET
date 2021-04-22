@@ -30,7 +30,7 @@ namespace Web.Controllers
         public ActionResult Save(EstudianteViewModel vm)
         {
             var model = MapperViewModelToEstuidante(vm);
-            //var save = _EstudianteServices.SaveEstudiante(model);
+            var save = _EstudianteServices.SaveEstudiante(model);
             return View();
         }
 
@@ -40,6 +40,8 @@ namespace Web.Controllers
               
             return View();
         }
+
+
         public ActionResult IsActive(EstudianteViewModel vm)
         {
             var tmp = new EstudianteServices();
@@ -47,14 +49,6 @@ namespace Web.Controllers
             return View();
         }
 
-
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
-        }
         private EstudianteViewModel MapperEstuidanteToViewModel(Estudiante model)
         {
             return new EstudianteViewModel()
@@ -73,7 +67,7 @@ namespace Web.Controllers
                 nacionalidad = model.nacionalidad
             };
         }
-
+        //este metodo hace un mapping
         private Estudiante MapperViewModelToEstuidante(EstudianteViewModel vm)
         {
             return new Estudiante()

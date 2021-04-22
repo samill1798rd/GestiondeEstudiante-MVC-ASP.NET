@@ -2,6 +2,7 @@
 using DataAccess;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 
 namespace Services.EstudianteServices
@@ -14,13 +15,13 @@ namespace Services.EstudianteServices
             _GestionDB = new GestionDB();
         }
 
-        public List<Estudiante> GetallEstudiantes()
+        public IEnumerable<Estudiante> GetallEstudiantes()
         {
             var ListEstudiante = _GestionDB.Estudiantes
                                           .Include("nacionalidad")
                                           .OrderBy(x => x.Nombre)
                                           .Where(x => x.IsActive == true)
-                                          .ToList();
+                                          .AsQueryable();
 
             return ListEstudiante;
         }
@@ -57,19 +58,15 @@ namespace Services.EstudianteServices
         {
             var Operation = new OperationResult<Estudiante>();
 
-            var estudianteTracking = _GestionDB.Estudiantes.Find(model.Id_Estudiantes);
+            var estudianteTracking = _GestionDB.Estudiantes.SingleOrDefault(x => x.Id_Estudiantes.Equals(model.Id_Estudiantes));
             try
             {
-                estudianteTracking.Apellido = model.Apellido;
-                estudianteTracking.Carrera = model.Carrera;
-                estudianteTracking.FechaFinalizacion = model.FechaFinalizacion;
-                estudianteTracking.FechaInicio = model.FechaInicio;
-                estudianteTracking.FechaNacimiento = model.FechaNacimiento;
-                estudianteTracking.Imagen = model.Imagen;
-                estudianteTracking.nacionalidad = model.nacionalidad;
-                estudianteTracking.Nacionalidad_id = model.Nacionalidad_id;
-                estudianteTracking.Nombre = estudianteTracking.Nombre;
+                _GestionDB.Estudiantes.Attach(model);
+                _GestionDB.Entry(model).State = EntityState.Modified;
                 _GestionDB.SaveChanges();
+                Operation.Mensaje.Add("Success");
+                Operation.ResultObject = model;
+                Operation.Ok = true;
             }
             catch (Exception)
             {
@@ -81,7 +78,7 @@ namespace Services.EstudianteServices
 
         }
 
-        public OperationResult<Estudiante> IsActiveEstudiante(Estudiante model)
+        public OperationResult<Estudiante> DesativadoLogicoEstudiante(Estudiante model)
         {
             var Operation = new OperationResult<Estudiante>();
 
@@ -89,14 +86,17 @@ namespace Services.EstudianteServices
             try
             {
                 estudianteTracking.IsActive = model.IsActive;
-
                 _GestionDB.SaveChanges();
+                Operation.Mensaje.Add("Success");
+                Operation.ResultObject = model;
+                Operation.Ok = true;
+
             }
             catch (Exception)
             {
                 Operation.Mensaje.Add(" Ocurrio un problema");
                 Operation.ResultObject = model;
-                Operation.Ok = true;
+                Operation.Ok = false;
             }
             return Operation;
         }
