@@ -9,7 +9,7 @@ namespace Services.EstudianteServices
 {
     public class EstudianteServices : IEstudianteServices
     {
-        private GestionDB _GestionDB;
+        private readonly GestionDB _GestionDB;
         public EstudianteServices()
         {
             _GestionDB = new GestionDB();

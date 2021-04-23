@@ -9,7 +9,7 @@ namespace Web.Controllers
 {
     public class EstudianteController : Controller
     {
-        private IEstudianteServices _EstudianteServices;
+        private readonly IEstudianteServices _EstudianteServices;
         public EstudianteController(IEstudianteServices EstudianteServices)
         {
             _EstudianteServices = EstudianteServices;

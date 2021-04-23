@@ -50,6 +50,8 @@
   <ItemGroup>
     <Compile Include="EstudianteServices\EstudianteServices.cs" />
     <Compile Include="EstudianteServices\IEstudianteServices.cs" />
+    <Compile Include="NacionalidadServices\INacionaliadadService.cs" />
+    <Compile Include="NacionalidadServices\NacionalidadAService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
