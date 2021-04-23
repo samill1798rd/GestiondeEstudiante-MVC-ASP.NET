@@ -5,10 +5,10 @@ using Web.ViewModel;
 
 namespace Web.Controllers
 {
-    public class HomeController : Controller
+    public class EstudianteController : Controller
     {
         private IEstudianteServices _EstudianteServices;
-        public HomeController(IEstudianteServices EstudianteServices)
+        public EstudianteController(IEstudianteServices EstudianteServices)
         {
             _EstudianteServices = EstudianteServices;
         }
@@ -17,14 +17,15 @@ namespace Web.Controllers
         {
 
             //var test = _EstudianteServices.GetallEstudiantes();
-            var ModelEstuidante = _EstudianteServices.GetEstudianteById(1);
-            var vm = MapperEstuidanteToViewModel(ModelEstuidante);
+            //var ModelEstuidante = _EstudianteServices.GetEstudianteById(1);
+            //var vm = MapperEstuidanteToViewModel(ModelEstuidante);
 
+            var estudiantes = _EstudianteServices.GetallEstudiantes();
             //var model 
 
             //var save = _EstudianteServices.SaveEstudiante();
 
-            return View(vm);
+            return View(estudiantes);
         }
         [HttpPost]
         public ActionResult Save(EstudianteViewModel vm)

@@ -4,14 +4,16 @@
     Layout = "/Views/Shared/_AuthenticationLayout.cshtml";
 }
 
-<div class="container login__container ">
+<div class="login__container animate__animated animate__fadeIn animate__faster">
     <div class="row login__row">
-        <div class="col-md-6 d-flex">
-            <img class="login__imagek align-self-center" src="https://www.freevector.com/uploads/vector/preview/28488/Businessman_Happy_Accepting_News.jpg"
-                 width="100%" alt="" />
+        <div class="col-md-6 d-flex mb-5">
+            <div class="align-self-center">
+                <img class="login__imagek" src="~/Content/images/undraw_exams.png"
+                     width="100%" alt="" />
+            </div>
         </div>
         <div class="col-md-5 d-flex">
-            <div class="align-self-center card login__card shadow-sm w-100">
+            <div class="align-self-center card login__card shadow p-3 mb-5 bg-white w-100">
                 <div class="card-body">
 
                     @using (Html.BeginForm())
