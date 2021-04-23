@@ -1,1 +1,90 @@
-﻿
+﻿@model IEnumerable<Web.ViewModel.EstudianteViewModel>
+
+
+<div class="row ">
+    <div class="col text-right mb-3 mt-5">
+        <a href="/Estudiante/Save" class="btn btn-primary btn-large shadow ">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+            Agregar nuevo estudiante
+        </a>
+    </div>
+</div>
+
+<div class="table-responsive shadow-sm p-3 mb-5 bg-white rounded 
+     animate__animated animate__fadeIn animate__faster">
+
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Nombre)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Apellido)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FechaNacimiento)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Matricula)
+                </th>
+
+    
+                <th>
+                    @Html.DisplayNameFor(model => model.FechaInicio)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FechaFinalizacion)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Nombre)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Apellido)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaNacimiento)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Matricula)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaInicio)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FechaFinalizacion)
+                    </td>
+
+                    <td style="width:160px">
+                        @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+
+                        <button class="btn btn-info mt-1 ml-1 shadow">
+                            <i class="fa fa-info" aria-hidden="true"></i>
+                        </button>
+                        <button class="btn btn-primary mt-1 ml-1 shadow">
+                            <i class="fa fa-pencil" aria-hidden="true"></i>
+                        </button>
+                        <button class="btn btn-danger mt-1 ml-1 shadow">
+                            <i class="fa fa-trash" aria-hidden="true"></i>
+                        </button>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+
+</div>

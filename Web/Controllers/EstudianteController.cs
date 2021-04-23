@@ -1,5 +1,7 @@
-﻿using DataAccess;
+﻿using AutoMapper;
+using DataAccess;
 using Services.EstudianteServices;
+using System.Collections.Generic;
 using System.Web.Mvc;
 using Web.ViewModel;
 
@@ -13,20 +15,29 @@ namespace Web.Controllers
             _EstudianteServices = EstudianteServices;
         }
 
+        [HttpGet]
         public ActionResult Index()
         {
 
             //var test = _EstudianteServices.GetallEstudiantes();
             //var ModelEstuidante = _EstudianteServices.GetEstudianteById(1);
             //var vm = MapperEstuidanteToViewModel(ModelEstuidante);
-
             var estudiantes = _EstudianteServices.GetallEstudiantes();
+            var estufiatesViewModel = Mapper.Map<IEnumerable<EstudianteViewModel>>(estudiantes);
             //var model 
-
             //var save = _EstudianteServices.SaveEstudiante();
-
-            return View(estudiantes);
+            return View(estufiatesViewModel);
         }
+
+        [HttpGet]
+        public ActionResult Save()
+        {
+          
+            return View();
+        }
+
+
+
         [HttpPost]
         public ActionResult Save(EstudianteViewModel vm)
         {
