@@ -7,12 +7,13 @@ namespace Web.Controllers
 {
     public class HomeController : Controller
     {
+         //Aqui llamamos a los servivios del mantenimiento de estudiante que contiene la interfaz s
         private IEstudianteServices _EstudianteServices;
         public HomeController(IEstudianteServices EstudianteServices)
         {
             _EstudianteServices = EstudianteServices;
         }
-
+        //Aqui va aparecer toda la informacion de los estudiantes llamados o mostrados a traves de su Id
         public ActionResult Index()
         {
 
@@ -26,6 +27,9 @@ namespace Web.Controllers
 
             return View(vm);
         }
+
+        //Aqui se esta ejecutando la funcion para guardar los datos del estudiante conetado 
+        //con el view model
         [HttpPost]
         public ActionResult Save(EstudianteViewModel vm)
         {
@@ -33,7 +37,8 @@ namespace Web.Controllers
             var save = _EstudianteServices.SaveEstudiante(model);
             return View();
         }
-
+        //Aqui se esta ejecutando la funcion para actualizar los datos del estudiante conetado 
+        //con estudiante services para que llame sus datos que tiene dentro
         public ActionResult Update(EstudianteServices vm)
         {
             var ups = new EstudianteServices();
@@ -41,7 +46,8 @@ namespace Web.Controllers
             return View();
         }
 
-
+        //Aqui se esta ejecutando la funcion isActive de los estudiante conetado para no eliminarlo sino 
+        // borrarlos
         public ActionResult IsActive(EstudianteViewModel vm)
         {
             var tmp = new EstudianteServices();
@@ -49,6 +55,7 @@ namespace Web.Controllers
             return View();
         }
 
+        //este metodo hace un mapping que viene del view moddel del estudiante directamente de su modelo 
         private EstudianteViewModel MapperEstuidanteToViewModel(Estudiante model)
         {
             return new EstudianteViewModel()
@@ -67,7 +74,7 @@ namespace Web.Controllers
                 nacionalidad = model.nacionalidad
             };
         }
-        //este metodo hace un mapping
+        //este metodo hace un mapping que viene del view moddel del estudiante 
         private Estudiante MapperViewModelToEstuidante(EstudianteViewModel vm)
         {
             return new Estudiante()
