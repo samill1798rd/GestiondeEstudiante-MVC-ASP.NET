@@ -15,17 +15,14 @@ namespace Web.Controllers
 
         public ActionResult Index()
         {
+            if(Session["user_id"] == null)
+            {
+                return Redirect("~/Authentication");
+            }
 
-            //var test = _EstudianteServices.GetallEstudiantes();
-            var ModelEstuidante = _EstudianteServices.GetEstudianteById(1);
-            var vm = MapperEstuidanteToViewModel(ModelEstuidante);
-
-            //var model 
-
-            //var save = _EstudianteServices.SaveEstudiante();
-
-            return View(vm);
+            return View();
         }
+
         [HttpPost]
         public ActionResult Save(EstudianteViewModel vm)
         {

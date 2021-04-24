@@ -17,7 +17,6 @@
                     @using (Html.BeginForm())
                     {
                         @Html.AntiForgeryToken()
-                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                         <div class="my-3">
                             <h4 class="text-center">
                                 Login
@@ -39,7 +38,7 @@
                                     <button type="submit" href="#" class="btn btn-primary btn-lg btn-block my-3">
                                         Iniciar sesion
                                     </button>
-
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                     <div class="text-center">                                        
                                         <span>@Html.ActionLink("Crear una cuenta", "Register")</span>
                                     </div>

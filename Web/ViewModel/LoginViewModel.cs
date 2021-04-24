@@ -4,7 +4,7 @@ namespace Web.ViewModel
 {
     public class LoginViewModel
     {
-        [Required(ErrorMessage ="El nombre de usuario es oblogatorio")]
+        [Required(ErrorMessage ="El nombre de usuario es obligatorio")]
         [Display(Name = "Nombre de usuario")]
         public string NombreUsuario { get; set; }
 

@@ -51,6 +51,8 @@
     <Compile Include="EstudianteServices\EstudianteServices.cs" />
     <Compile Include="EstudianteServices\IEstudianteServices.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsuarioServices\UserServices.cs" />
+    <Compile Include="UsuarioServices\IUserServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
