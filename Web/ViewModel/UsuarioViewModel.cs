@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 
 namespace Web.ViewModel
 {
@@ -17,7 +14,6 @@ namespace Web.ViewModel
         [Required(ErrorMessage = "La contraseña es obligaroria")]
         [Display(Name = "Contraseña")]
         public string Clave { get; set; }
-        
 
         [Required(ErrorMessage = "La contraseña es obligaroria")]
         [Display(Name = "Confimar contraseña")]

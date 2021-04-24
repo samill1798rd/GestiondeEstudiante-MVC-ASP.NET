@@ -53,6 +53,8 @@
     <Compile Include="NacionalidadServices\INacionaliadadService.cs" />
     <Compile Include="NacionalidadServices\NacionalidadAService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UsuarioServices\UserServices.cs" />
+    <Compile Include="UsuarioServices\IUserServices.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
