@@ -1,5 +1,6 @@
 ﻿using DataAccess;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Services.NacionalidadServices
 {
@@ -10,9 +11,9 @@ namespace Services.NacionalidadServices
         {
             _GestionDB = new GestionDB();
         }
-        public IEnumerable<nacionalidad> GetallEstudiantes()
+        public IEnumerable<nacionalidad> GetAllNacionalidades()
         {
-              return _GestionDB.nacionalidads;
+            return _GestionDB.nacionalidads;
         }
     }
 }

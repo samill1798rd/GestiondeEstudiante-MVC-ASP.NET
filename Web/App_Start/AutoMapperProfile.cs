@@ -10,6 +10,8 @@ namespace Web.App_Start
         {
             CreateMap<EstudianteViewModel, Estudiante>();
             CreateMap<Estudiante, EstudianteViewModel>();
+            CreateMap<NacionalidadesViewModel, nacionalidad>();
+            CreateMap<nacionalidad, NacionalidadesViewModel>();
         }
     }
 }

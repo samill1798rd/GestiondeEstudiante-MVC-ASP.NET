@@ -29,7 +29,6 @@ namespace Services.EstudianteServices
         public Estudiante GetEstudianteById(int id)
         {
             var estudiante = _GestionDB.Estudiantes.Find(id);
-
             return estudiante;
         }
 

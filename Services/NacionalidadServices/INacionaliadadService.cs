@@ -9,6 +9,6 @@ namespace Services.NacionalidadServices
 {
     public interface INacionaliadadService
     {
-        IEnumerable<nacionalidad> GetallEstudiantes();
+         IEnumerable<nacionalidad> GetAllNacionalidades();
     }
 }

@@ -1,49 +1,59 @@
 ﻿using AutoMapper;
 using DataAccess;
 using Services.EstudianteServices;
+using Services.NacionalidadServices;
 using System.Collections.Generic;
 using System.Web.Mvc;
 using Web.ViewModel;
+using System.Linq;
 
 namespace Web.Controllers
 {
     public class EstudianteController : Controller
     {
-        private readonly IEstudianteServices _EstudianteServices;
-        public EstudianteController(IEstudianteServices EstudianteServices)
+        private readonly IEstudianteServices _estudianteServices;
+        private readonly INacionaliadadService _nacionaliadadService;
+        public EstudianteController(IEstudianteServices EstudianteServices,
+                                    INacionaliadadService nacionaliadadService)
         {
-            _EstudianteServices = EstudianteServices;
+            _estudianteServices = EstudianteServices;
+            _nacionaliadadService = nacionaliadadService;
         }
 
         [HttpGet]
         public ActionResult Index()
         {
-
-            //var test = _EstudianteServices.GetallEstudiantes();
-            //var ModelEstuidante = _EstudianteServices.GetEstudianteById(1);
-            //var vm = MapperEstuidanteToViewModel(ModelEstuidante);
-            var estudiantes = _EstudianteServices.GetallEstudiantes();
+            var estudiantes = _estudianteServices.GetallEstudiantes();
             var estufiatesViewModel = Mapper.Map<IEnumerable<EstudianteViewModel>>(estudiantes);
-            //var model 
-            //var save = _EstudianteServices.SaveEstudiante();
             return View(estufiatesViewModel);
         }
 
         [HttpGet]
         public ActionResult Save()
         {
-          
+            ViewData["Nacionalidades"] = GetNacionalidadesViewModel();
             return View();
         }
-
-
 
         [HttpPost]
         public ActionResult Save(EstudianteViewModel vm)
         {
-            var model = MapperViewModelToEstuidante(vm);
-            var save = _EstudianteServices.SaveEstudiante(model);
+            if (ModelState.IsValid)
+            {
+                var model = MapperViewModelToEstuidante(vm);
+                model.IsActive = true;
+                _estudianteServices.SaveEstudiante(model);
+                return RedirectToAction(nameof(Index));
+            }
+            ViewData["Nacionalidades"] = GetNacionalidadesViewModel();
             return View();
+        }
+
+        private IEnumerable<NacionalidadesViewModel> GetNacionalidadesViewModel()
+        {
+            var nacionalidades = _nacionaliadadService.GetAllNacionalidades();
+            var nacionalidadesViewModel = Mapper.Map<IEnumerable<NacionalidadesViewModel>>(nacionalidades);
+            return nacionalidadesViewModel;
         }
 
         public ActionResult Update(EstudianteServices vm)
