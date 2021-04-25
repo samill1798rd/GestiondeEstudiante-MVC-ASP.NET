@@ -1,0 +1,84 @@
+﻿@model Web.ViewModel.EstudianteViewModel
+
+<h4 class="d-inline-block">Detalle del estudiante</h4>
+
+<div class="row ">
+    <div class="col text-right mb-3 mt-1">
+        <a href="/Estudiante/Index" class="btn btn-danger btn-large shadow ">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            Ir a la lista
+        </a>
+    </div>
+</div>
+
+
+
+<div class="shadow-sm p-3 mb-5 bg-white rounded
+     animate__animated animate__fadeIn animate__faster">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Apellido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apellido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaNacimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaNacimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Matricula)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Matricula)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nacionalidad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nacionalidad.PAIS_NAC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Carrera)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carrera)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaInicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaInicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaFinalizacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaFinalizacion)
+        </dd>
+
+    </dl>
+</div>

@@ -305,6 +305,9 @@
     <Content Include="Views\Shared\_AuthenticationLayout.cshtml" />
     <Content Include="Views\Estudiante\Index.cshtml" />
     <Content Include="Views\Estudiante\Save.cshtml" />
+    <Content Include="Views\Estudiante\Update.cshtml" />
+    <Content Include="Views\Estudiante\_EstudianteForm.cshtml" />
+    <Content Include="Views\Estudiante\Detail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

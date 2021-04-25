@@ -24,6 +24,7 @@ namespace Web.Controllers
         public ActionResult Index()
         {
             var estudiantes = _estudianteServices.GetallEstudiantes();
+            
             var estufiatesViewModel = Mapper.Map<IEnumerable<EstudianteViewModel>>(estudiantes);
             return View(estufiatesViewModel);
         }
@@ -36,7 +37,9 @@ namespace Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Save(EstudianteViewModel vm)
+        public ActionResult Save(
+            [Bind(Include = "Nombre,Apellido,FechaNacimiento,Matricula," +
+            "Carrera,FechaInicio,FechaFinalizacion,Nacionalidad_id")] EstudianteViewModel vm)
         {
             if (ModelState.IsValid)
             {
@@ -56,19 +59,57 @@ namespace Web.Controllers
             return nacionalidadesViewModel;
         }
 
-        public ActionResult Update(EstudianteServices vm)
+        [HttpGet]
+        public ActionResult Detail(int? Id_Estudiantes)
         {
-            var ups = new EstudianteServices();
-              
-            return View();
+            var estudiante = _estudianteServices.GetFullEstudianteById(Id_Estudiantes);
+            if (estudiante == null)
+            {
+                return HttpNotFound();
+            }
+            var estudianteViewModel = Mapper.Map<EstudianteViewModel>(estudiante);
+            return View(estudianteViewModel);
         }
 
 
-        public ActionResult IsActive(EstudianteViewModel vm)
+        [HttpPost]
+        public ActionResult Update(EstudianteViewModel vm)
         {
-            var tmp = new EstudianteServices();
+            ViewData["Nacionalidades"] = GetNacionalidadesViewModel();
+            var estuidiante = Mapper.Map<Estudiante>(vm);
+            if (ModelState.IsValid)
+            {
+                _estudianteServices.UpdateEstudiante(estuidiante);
+                return RedirectToAction(nameof(Index));
+            }
+            return View(vm);
+        }
 
-            return View();
+        [HttpGet]
+        public ActionResult Update(int? Id_Estudiantes)
+        {
+            var estudiante = _estudianteServices.GetEstudianteById(Id_Estudiantes);
+            ViewData["Nacionalidades"] = GetNacionalidadesViewModel();
+            if (estudiante == null)
+            {
+                return HttpNotFound();
+            }
+            var estudianteViewModel = Mapper.Map<EstudianteViewModel>(estudiante);
+            return View(estudianteViewModel);
+        }
+
+        [HttpGet]
+        public ActionResult Disabled(int? Id_Estudiantes)
+        {
+            var estudiante = _estudianteServices.GetEstudianteById(Id_Estudiantes);
+            _estudianteServices.DisableEstudiante(estudiante);
+            ViewData["Nacionalidades"] = GetNacionalidadesViewModel();
+            if (estudiante == null)
+            {
+                return HttpNotFound();
+            }
+            var estudianteViewModel = Mapper.Map<EstudianteViewModel>(estudiante);
+            return RedirectToAction(nameof(Index));
         }
 
         private EstudianteViewModel MapperEstuidanteToViewModel(Estudiante model)

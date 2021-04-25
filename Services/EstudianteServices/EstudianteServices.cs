@@ -26,9 +26,17 @@ namespace Services.EstudianteServices
             return ListEstudiante;
         }
 
-        public Estudiante GetEstudianteById(int id)
+        public Estudiante GetEstudianteById(int? id)
         {
-            var estudiante = _GestionDB.Estudiantes.Find(id);
+            var estudiante = _GestionDB.Estudiantes
+                .FirstOrDefault(x => x.Id_Estudiantes == id);
+            return estudiante;
+        }
+
+        public Estudiante GetFullEstudianteById(int? id)
+        {
+            var estudiante = _GestionDB.Estudiantes.Include("nacionalidad")
+                .FirstOrDefault(x => x.Id_Estudiantes == id);
             return estudiante;
         }
 
@@ -49,6 +57,7 @@ namespace Services.EstudianteServices
             return Operation;
         }
 
+#warning this block code can be better 
         public OperationResult<Estudiante> UpdateEstudiante(Estudiante model)
         {
             var Operation = new OperationResult<Estudiante>();
@@ -56,8 +65,9 @@ namespace Services.EstudianteServices
             var estudianteTracking = _GestionDB.Estudiantes.SingleOrDefault(x => x.Id_Estudiantes.Equals(model.Id_Estudiantes));
             try
             {
-                _GestionDB.Estudiantes.Attach(model);
-                _GestionDB.Entry(model).State = EntityState.Modified;
+                //_GestionDB.Estudiantes.Attach(model);
+                //_GestionDB.Entry(model).State = EntityState.Modified;
+                ChangeEstudianteToUpdae(estudianteTracking, model);
                 _GestionDB.SaveChanges();
                 Operation = SendModelStatus(model, true);
             }
@@ -68,6 +78,21 @@ namespace Services.EstudianteServices
             return Operation;
         }
 
+#warning this block code can be better 
+        private void ChangeEstudianteToUpdae(Estudiante estudianteToUpdateTrack, Estudiante estudiannteDestination)
+        {
+            estudianteToUpdateTrack.Nombre = estudiannteDestination.Nombre;
+            estudianteToUpdateTrack.Nacionalidad_id = estudiannteDestination.Nacionalidad_id;
+            estudianteToUpdateTrack.Apellido = estudiannteDestination.Apellido;
+            estudianteToUpdateTrack.Carrera = estudianteToUpdateTrack.Carrera;
+            estudianteToUpdateTrack.FechaFinalizacion = estudiannteDestination.FechaFinalizacion;
+            estudianteToUpdateTrack.FechaInicio = estudiannteDestination.FechaInicio;
+            estudianteToUpdateTrack.FechaNacimiento = estudiannteDestination.FechaNacimiento;
+            estudianteToUpdateTrack.Imagen = estudianteToUpdateTrack.Imagen;
+            estudianteToUpdateTrack.Matricula = estudiannteDestination.Matricula;
+        }
+
+
         public OperationResult<Estudiante> DisableEstudiante(Estudiante model)
         {
             var Operation = new OperationResult<Estudiante>();
@@ -75,7 +100,7 @@ namespace Services.EstudianteServices
             var estudianteTracking = _GestionDB.Estudiantes.Find(model.Id_Estudiantes);
             try
             {
-                estudianteTracking.IsActive = model.IsActive;
+                estudianteTracking.IsActive = false;
                 _GestionDB.SaveChanges();
                 Operation = SendModelStatus(model, true);
             }

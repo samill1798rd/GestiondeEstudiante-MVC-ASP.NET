@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<Web.ViewModel.EstudianteViewModel>
 
-
+<h4 class="d-inline-block">Lista de estudiantes</h4>
 <div class="row ">
-    <div class="col text-right mb-3 mt-5">
+    <div class="col text-right mb-3 ">
         <a href="/Estudiante/Save" class="btn btn-primary btn-large shadow ">
             <i class="fa fa-plus" aria-hidden="true"></i>
             Agregar nuevo estudiante
@@ -71,15 +71,15 @@
         @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
         @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
 
-                        <button class="btn btn-info mt-1 ml-1 shadow">
+                        <a href="@Url.Action("Detail","Estudiante",new {Id_Estudiantes=item.Id_Estudiantes})" class="btn btn-info mt-1 ml-1 shadow">
                             <i class="fa fa-info" aria-hidden="true"></i>
-                        </button>
-                        <button class="btn btn-primary mt-1 ml-1 shadow">
+                        </a>
+                        <a  href="@Url.Action("Update","Estudiante",new {Id_Estudiantes=item.Id_Estudiantes})" class="btn btn-primary mt-1 ml-1 shadow">
                             <i class="fa fa-pencil" aria-hidden="true"></i>
-                        </button>
-                        <button class="btn btn-danger mt-1 ml-1 shadow">
+                        </a>
+                        <a href="@Url.Action("Disabled","Estudiante",new {Id_Estudiantes=item.Id_Estudiantes})" onclick="return confirm('Estas seguro que quieres deshabilitar a @item.Nombre?')" class="btn btn-danger mt-1 ml-1 shadow">
                             <i class="fa fa-trash" aria-hidden="true"></i>
-                        </button>
+                        </a>
                     </td>
                 </tr>
             }
