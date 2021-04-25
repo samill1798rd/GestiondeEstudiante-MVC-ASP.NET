@@ -1,5 +1,6 @@
 using Services.EstudianteServices;
 using Services.NacionalidadServices;
+using Services.UserServices;
 using System.Web.Mvc;
 using Unity;
 using Unity.Mvc5;
@@ -20,7 +21,7 @@ namespace Web
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
             container.RegisterType<IEstudianteServices, EstudianteServices>();
             container.RegisterType<INacionaliadadService, NacionalidadAService>();
-
+            container.RegisterType<IUserServices, UserServices>();
         }
     }
 }

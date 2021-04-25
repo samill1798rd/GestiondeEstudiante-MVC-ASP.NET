@@ -23,10 +23,16 @@ namespace Web.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var estudiantes = _estudianteServices.GetallEstudiantes();
+            if (Session["user_id"] == null)
+            {
+                return Redirect("~/Authentication");
+            }
+
+            var estudiantes = 
+                _estudianteServices.GetallEstudiantes() 
+                ?? Enumerable.Empty<Estudiante>();
             
-            var estufiatesViewModel = Mapper.Map<IEnumerable<EstudianteViewModel>>(estudiantes);
-            return View(estufiatesViewModel);
+            return View(Mapper.Map<IEnumerable<EstudianteViewModel>>(estudiantes));
         }
 
         [HttpGet]

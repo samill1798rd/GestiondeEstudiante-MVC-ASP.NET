@@ -26,7 +26,7 @@ namespace Web.Controllers
         {
             if (Session["user_id"] != null)
             {
-                return Redirect("~/Home");
+                return Redirect("~/");
             }
 
             ViewBag.Title = "Iniciar Sesión";
@@ -37,7 +37,7 @@ namespace Web.Controllers
         {
             if (Session["user_id"] != null)
             {
-                return Redirect("~/Home");
+                return Redirect("~/");
             }
 
             ViewBag.Title = "Registro";
@@ -101,7 +101,6 @@ namespace Web.Controllers
             return RedirectToAction(nameof(Login));
         }
 
-        [HttpPost]
         public ActionResult Logout()
         {
             Session.Clear();
