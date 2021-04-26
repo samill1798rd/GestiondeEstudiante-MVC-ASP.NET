@@ -31,10 +31,10 @@ Para poder correr este sistema en su maquina debera realizar los siguente:
 - [Gilbert Samill Rivas](https://github.com/samill1798rd)
 - [Daniel](https://github.com/Daniel884936 "Daniel")
 - [Christoper Severino](https://github.com/severino1 "Christoper Severino")
-- [Joel](https://github.com/Joel1844 "Joel")
--  [Juan]( https://github.com/Juand0014 "Juan")
-- [Angel](https://github.com/k0o "Angel")
--  [Eliot villar](https://github.com/eliotvillarc "Eliot villar")
+- [Joel Francisco Frias](https://github.com/Joel1844 "Joel")
+- [Juan]( https://github.com/Juand0014 "Juan")
+- [Angel Wisha](https://github.com/k0o "Angel")
+- [Eliot villar](https://github.com/eliotvillarc "Eliot villar")
 - [Esmerlin Borges Corporan]( https://github.com/ViicKeTt "Esmerlin Borges Corporan")
 
 ------------
