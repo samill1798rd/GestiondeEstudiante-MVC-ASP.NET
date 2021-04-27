@@ -14,7 +14,8 @@ El proyecto Web cuenta con una arquitectura MVC (Modelo Vista Controlador) ViewM
 
 ### 🔧 Installation
 Para poder correr este sistema en su maquina debera realizar los siguente:
-- Ir a la libreria llamada DataAcess.
+- Debe descargar nuestra bases de datos y crearla
+- En el proyecto, ir a la libreria llamada DataAcess.
 - En esta libreria de ir a un archivo llamado "**Web.Config**".
 - En App.Config le aparecera la cadena de conexion "**connectionStrings**" vista de esta forma:
 
@@ -27,15 +28,15 @@ Para poder correr este sistema en su maquina debera realizar los siguente:
 ------------
 
 ### Collaborators
-- [Karina Montero](https://github.com/karina0724 "Karina Montero")
-- [Gilbert Samill Rivas](https://github.com/samill1798rd)
-- [Daniel](https://github.com/Daniel884936 "Daniel")
-- [Christoper Severino](https://github.com/severino1 "Christoper Severino")
-- [Joel Francisco Frias](https://github.com/Joel1844 "Joel")
-- [Juan David Matos]( https://github.com/Juand0014 "Juan")
-- [Angel Wisha](https://github.com/k0o "Angel")
-- [Eliot villar](https://github.com/eliotvillarc "Eliot villar")
-- [Esmerlin Borges Corporan]( https://github.com/ViicKeTt "Esmerlin Borges Corporan")
+- [Karina Montero Leonardo (2018-6814)](https://github.com/karina0724 "Karina Montero")
+- [Gilbert Samill Rivas (2019-7546)](https://github.com/samill1798rd)
+- [Erick Daniel Tejada Montero (2018-7199)](https://github.com/Daniel884936 "Daniel")
+- [Christoper Severino (2018-6100)](https://github.com/severino1 "Christoper Severino")
+- [Joel francisco frias castillo (2018-6818)](https://github.com/Joel1844 "Joel")
+- [Juan David Matos (2018-7221)]( https://github.com/Juand0014 "Juan")
+- [Ángel Mongrut (2018-7151)](https://github.com/k0o "Angel")
+- [Eliot villar (2019-7619)](https://github.com/eliotvillarc "Eliot villar")
+- [Esmerlin Borges Corporan (2018-6581)]( https://github.com/ViicKeTt "Esmerlin Borges Corporan")
 
 ------------
 
